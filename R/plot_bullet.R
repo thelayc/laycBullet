@@ -44,7 +44,7 @@ plot_bullet <- function(df,
                          position = position_dodge(width = 0.2))
   p <- p + geom_point(aes(y_title, value_scaled), color = "black",  stat = "identity", size = 8)
   p <- p + scale_fill_manual(values = my_palette)
-  p <- p + scale_y_continuous(label = percent_format(), expand = c(0, 0))
+  p <- p + scale_y_continuous(label = scales::percent_format(), expand = c(0, 0))
   p <- p + scale_x_discrete(expand = c(0, 0))
   p <- p + coord_flip()
   p <- p + ggtitle(my_title)
