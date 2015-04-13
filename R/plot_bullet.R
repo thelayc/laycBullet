@@ -49,7 +49,7 @@ plot_bullet <- function(df,
   p <- p + scale_x_discrete(expand = c(0, 0))
   p <- p + coord_flip()
   p <- p + ggtitle(my_title)
-  p <- p + laycUtils::theme_layc(font_family = my_font)
+  p <- p + laycUtils::theme_layc(base_family = my_font)
   p <- p + theme(panel.border = element_blank(),
                  plot.title = element_text(size = 20, face = 'bold'),
                  axis.title = element_blank(),
