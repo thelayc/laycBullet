@@ -21,7 +21,8 @@
 plot_bullet <- function(df,
                         my_title = 'Overview of JRT results for FY14\n',
                         my_palette = c('#B10318', '#DBA13A', '#309343'),
-                        my_font = 'Impact'){
+                        my_font = 'Impact',
+                        my_background = '#E2E2E3'){
 
   # Custom constant for plot
   my_width <- .5
@@ -48,7 +49,10 @@ plot_bullet <- function(df,
                  axis.text.y = element_text(size = rel(1.2), face = 'bold'),
                  axis.text.x = element_text(size = rel(1.2), face = 'bold'),
                  axis.ticks.y = element_blank(),
-                 legend.position = 'bottom')
+                 legend.position = 'bottom',
+                 panel.background = element_rect(fill = my_background),
+                 plot.background = element_rect(fill = my_background, colour = my_background),
+                 legend.background = element_rect(fill = my_background))
 
 
   return(p)
