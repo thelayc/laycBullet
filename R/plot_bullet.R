@@ -38,13 +38,13 @@ plot_bullet <- function(df,
 
   # Bullet plot
   p <- ggplot(df)
-  p <- p + geom_bar(aes(x = reorder(y_title, n), y = 1, fill = target_met),
-                    stat = "identity", width = my_width, alpha = .6)
+  p <- p + geom_bar(aes(x = reorder(y_title, n), y = 1),
+                    stat = "identity", width = my_width, alpha = .6, fill = 'white')
   p <- p + geom_errorbar(aes(x=y_title, y = target, ymin = target, ymax = target),
                          color = "#60636A", width = my_width + .05, size = 3,
                          position = position_dodge(width = 0.2))
-  p <- p + geom_point(aes(y_title, value_scaled), color = "black",  stat = "identity", size = 8)
-  p <- p + scale_fill_manual(values = my_palette)
+  p <- p + geom_point(aes(y_title, value_scaled, color = target_met),  stat = "identity", size = 8)
+  p <- p + scale_color_manual(values = my_palette)
   p <- p + scale_y_continuous(label = scales::percent_format(), expand = c(0, 0))
   p <- p + scale_x_discrete(expand = c(0, 0))
   p <- p + coord_flip()
