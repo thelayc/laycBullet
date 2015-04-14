@@ -41,9 +41,9 @@ plot_bullet <- function(df,
   p <- p + geom_bar(aes(x = reorder(y_title, n), y = 1),
                     stat = "identity", width = my_width, alpha = .6, fill = 'white')
   p <- p + geom_errorbar(aes(x=y_title, y = target, ymin = target, ymax = target),
-                         color = "#60636A", width = my_width + .05, size = 3,
+                         color = "#60636A", width = my_width + .05, size = rel(4),
                          position = position_dodge(width = 0.2))
-  p <- p + geom_point(aes(y_title, value_scaled, color = target_met),  stat = "identity", size = 8)
+  p <- p + geom_point(aes(y_title, value_scaled, color = target_met),  stat = "identity", size = rel(6))
   p <- p + scale_color_manual(values = my_palette)
   p <- p + scale_y_continuous(label = scales::percent_format(), expand = c(0, 0))
   p <- p + scale_x_discrete(expand = c(0, 0))
@@ -51,10 +51,10 @@ plot_bullet <- function(df,
   p <- p + ggtitle(my_title)
   p <- p + laycUtils::theme_layc(base_family = my_font)
   p <- p + theme(panel.border = element_blank(),
-                 plot.title = element_text(size = 20, face = 'bold'),
+                 plot.title = element_text(size = rel(1.5), face = 'bold'),
                  axis.title = element_blank(),
-                 axis.text.y = element_text(size = 15, face = 'bold'),
-                 axis.text.x = element_text(size = 15, face = 'bold'),
+                 axis.text.y = element_text(size = rel(1.2), face = 'bold'),
+                 axis.text.x = element_text(size = rel(1.2), face = 'bold'),
                  axis.ticks.y = element_blank(),
                  legend.position = 'bottom')
 
