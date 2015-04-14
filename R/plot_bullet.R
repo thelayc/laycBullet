@@ -22,14 +22,6 @@ plot_bullet <- function(df,
                         my_title = 'Overview of JRT results for FY14\n',
                         my_palette = c('#B10318', '#DBA13A', '#309343'),
                         my_font = 'Impact'){
-  # Data cleaning and transformation
-  df$value_scaled <- round(df$value / df$n, 3)
-  df$y_title <- paste(df$measure, '\nn =', df$n)
-  df$target_met[df$value_scaled < df$target / 2] <- 'low'
-  df$target_met[df$value_scaled >= df$target / 2 & df$value_scaled < df$target] <- 'medium'
-  df$target_met[df$value_scaled >= df$target] <- 'high'
-  df$target_met <- ordered(df$target_met)
-  df$target_met <- ordered(df$target_met, levels = c("low", "medium", "high"))
 
   # Custom constant for plot
   my_width <- .5
