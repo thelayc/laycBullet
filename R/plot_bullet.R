@@ -34,12 +34,14 @@ plot_bullet <- function(df,
 
   # Bullet plot
   p <- ggplot(df)
-  p <- p + geom_bar(aes(x = reorder(y_title, rank), y = 1),
+  p <- p + geom_bar(aes(x = reorder(y_title, -rank), y = 1),
                     stat = "identity", width = my_width, alpha = .6, fill = 'white')
   p <- p + geom_errorbar(aes(x=y_title, y = target, ymin = target, ymax = target),
-                         color = "#60636A", width = my_width + .05, size = rel(4),
+                         color = "#60636A", width = my_width + .02, size = rel(4),
                          position = position_dodge(width = 0.2))
   p <- p + geom_point(aes(y_title, value_scaled, color = target_met),  stat = "identity", size = rel(6))
+  p <- p + geom_text(aes(y_title, value_scaled + 0.05, label = paste0(value_scaled*100, '%')),
+                     stat = "identity", size = rel(5), family = my_font)
   p <- p + scale_color_manual(values = my_palette)
   p <- p + scale_y_continuous(label = scales::percent_format(), expand = c(0, 0))
   p <- p + scale_x_discrete(expand = c(0, 0))

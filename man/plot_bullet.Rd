@@ -7,7 +7,8 @@
  \url{http://en.wikipedia.org/wiki/Bullet_graph}}
 \usage{
 plot_bullet(df, my_title = "Overview of JRT results for FY14\\n",
-  my_palette = c("#B10318", "#DBA13A", "#309343"))
+  my_palette = c("#B10318", "#DBA13A", "#309343"), my_font = "Impact",
+  my_background = "#E2E2E3")
 }
 \arguments{
 \item{df:}{data.frame with 1 rows and the following 7 columns
