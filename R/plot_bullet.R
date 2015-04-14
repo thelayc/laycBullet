@@ -20,7 +20,7 @@
 
 plot_bullet <- function(df,
                         my_title = 'Overview of JRT results for FY14\n',
-                        my_palette = c('#B10318', '#DBA13A', '#309343'),
+                        my_palette = c('low' = '#B10318', 'medium' = '#DBA13A', 'high' = '#309343'),
                         my_font = 'Impact',
                         my_background = '#E2E2E3'){
 
@@ -29,8 +29,6 @@ plot_bullet <- function(df,
 
   # Custom constant for plot
   my_width <- .5
-  my_title <- 'Overview of JRT results for FY14\n'
-  my_palette <- c('#B10318', '#DBA13A', '#309343')
 
   # Bullet plot
   p <- ggplot(df)
@@ -42,7 +40,7 @@ plot_bullet <- function(df,
   p <- p + geom_point(aes(y_title, value_scaled, color = target_met),  stat = "identity", size = rel(6))
   p <- p + geom_text(aes(y_title, value_scaled + 0.05, label = paste0(value_scaled*100, '%')),
                      stat = "identity", size = rel(5), family = my_font)
-  p <- p + scale_color_manual(values = my_palette)
+  p <- p + scale_color_manual(name = "Target met", values = my_palette, drop = FALSE)
   p <- p + scale_y_continuous(label = scales::percent_format(), expand = c(0, 0))
   p <- p + scale_x_discrete(expand = c(0, 0))
   p <- p + coord_flip()
@@ -57,7 +55,8 @@ plot_bullet <- function(df,
                  legend.position = 'bottom',
                  panel.background = element_rect(fill = my_background),
                  plot.background = element_rect(fill = my_background, colour = my_background),
-                 legend.background = element_rect(fill = my_background))
+                 legend.background = element_rect(fill = my_background),
+                 legend.key = element_rect(fill = my_background))
 
 
   return(p)
