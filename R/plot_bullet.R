@@ -31,7 +31,7 @@ plot_bullet <- function(df,
 
   # Bullet plot
   p <- ggplot(df)
-  p <- p + geom_bar(aes(x = y_title, y = 1),
+  p <- p + geom_bar(aes(x = reorder(y_title, n), y = 1),
                     stat = "identity", width = my_width, alpha = .6, fill = 'white')
   p <- p + geom_errorbar(aes(x=y_title, y = target, ymin = target, ymax = target),
                          color = "#60636A", width = my_width + .05, size = rel(4),
