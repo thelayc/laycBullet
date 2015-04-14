@@ -24,6 +24,9 @@ plot_bullet <- function(df,
                         my_font = 'Impact',
                         my_background = '#E2E2E3'){
 
+  # Take care of ordering
+  df$rank <- 1:nrow(df)
+
   # Custom constant for plot
   my_width <- .5
   my_title <- 'Overview of JRT results for FY14\n'
@@ -31,7 +34,7 @@ plot_bullet <- function(df,
 
   # Bullet plot
   p <- ggplot(df)
-  p <- p + geom_bar(aes(x = reorder(y_title, n), y = 1),
+  p <- p + geom_bar(aes(x = reorder(y_title, rank), y = 1),
                     stat = "identity", width = my_width, alpha = .6, fill = 'white')
   p <- p + geom_errorbar(aes(x=y_title, y = target, ymin = target, ymax = target),
                          color = "#60636A", width = my_width + .05, size = rel(4),
