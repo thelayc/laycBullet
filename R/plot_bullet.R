@@ -38,8 +38,8 @@ plot_bullet <- function(df,
                          color = "#60636A", width = my_width + .02, size = rel(4),
                          position = position_dodge(width = 0.2))
   p <- p + geom_point(aes(y_title, value_scaled, color = target_met),  stat = "identity", size = rel(6))
-  p <- p + geom_text(aes(y_title, value_scaled + 0.05, label = paste0(value_scaled*100, '%')),
-                     stat = "identity", size = rel(5), family = my_font)
+  p <- p + geom_text(aes(y_title, value_scaled + 0.1, label = paste0(value_scaled*100, '%')),
+                     stat = "identity", size = rel(4), family = my_font)
   p <- p + scale_color_manual(name = "Target met", values = my_palette, drop = FALSE)
   p <- p + scale_y_continuous(label = scales::percent_format(), expand = c(0, 0))
   p <- p + scale_x_discrete(expand = c(0, 0))
@@ -49,8 +49,8 @@ plot_bullet <- function(df,
   p <- p + theme(panel.border = element_blank(),
                  plot.title = element_text(size = rel(1.5), face = 'bold'),
                  axis.title = element_blank(),
-                 axis.text.y = element_text(size = rel(1.2), face = 'bold'),
-                 axis.text.x = element_text(size = rel(1.2), face = 'bold'),
+                 axis.text.y = element_text(size = rel(1), face = 'bold'),
+                 axis.text.x = element_text(size = rel(1), face = 'bold'),
                  axis.ticks.y = element_blank(),
                  legend.position = 'bottom',
                  panel.background = element_rect(fill = my_background),
