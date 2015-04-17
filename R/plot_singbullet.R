@@ -43,15 +43,15 @@ plot_singbullet <- function(df,
   p <- p + coord_flip()
   p <- p + laycUtils::theme_layc(base_family = my_font)
   p <- p + theme(panel.border = element_blank(),
+                 plot.margin = unit(c(0, 0, 0, 0), 'lines'),
+                 plot.margin = unit(c(0, 0, 0, 0), 'lines'),
                  plot.title = element_text(size = rel(1.5), face = 'bold'),
                  axis.title = element_blank(),
                  axis.text = element_blank(),
                  axis.ticks = element_blank(),
                  legend.position = 'none',
                  panel.background = element_rect(fill = my_background),
-                 plot.background = element_rect(fill = my_background, colour = my_background),
-                 legend.background = element_rect(fill = my_background),
-                 legend.key = element_rect(fill = my_background))
+                 plot.background = element_rect(fill = my_background, colour = my_background))
 
 
   return(p)
