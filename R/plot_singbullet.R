@@ -43,8 +43,8 @@ plot_singbullet <- function(df,
   p <- p + coord_flip()
   p <- p + laycUtils::theme_layc(base_family = my_font)
   p <- p + theme(panel.border = element_blank(),
-                 plot.margin = unit(c(0, 0, 0, 0), 'lines'),
-                 plot.margin = unit(c(0, 0, 0, 0), 'lines'),
+                 plot.margin = grid::unit(c(0, 0, 0, 0), 'lines'),
+                 plot.margin = grid::unit(c(0, 0, 0, 0), 'lines'),
                  plot.title = element_text(size = rel(1.5), face = 'bold'),
                  axis.title = element_blank(),
                  axis.text = element_blank(),
